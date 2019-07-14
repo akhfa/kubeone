@@ -54,6 +54,7 @@ resource "hcloud_server" "lb" {
   connection {
     type = "ssh"
     host = self.ipv4_address
+    private_key = "${file("/root/.ssh/id_rsa")}"
   }
 
   provisioner "remote-exec" {
@@ -74,7 +75,9 @@ resource "null_resource" "lb_config" {
   }
 
   connection {
+    type = "ssh"
     host = hcloud_server.lb.ipv4_address
+    private_key = "${file("/root/.ssh/id_rsa")}"
   }
 
   provisioner "file" {
