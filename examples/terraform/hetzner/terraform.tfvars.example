@@ -1,0 +1,4 @@
+cluster_name = "myk8s"
+ssh_private_key_file = "/root/.ssh/id_rsa"
+ssh_public_key_file = "/root/.ssh/id_rsa.pub"
+ssh_agent_socket = ""
